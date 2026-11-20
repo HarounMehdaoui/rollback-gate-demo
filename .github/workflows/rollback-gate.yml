@@ -1,0 +1,20 @@
+# Runs Rollback Gate on every pull request: can the released app (tag v*) still run on the database this PR's migrations leave?
+name: Rollback Gate
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: HarounMehdaoui/rigseal@v0.1.0

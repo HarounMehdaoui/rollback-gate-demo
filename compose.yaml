@@ -1,0 +1,18 @@
+# Throwaway Postgres for the Day-1 rollback lab.
+# log_statement=all makes Postgres log every SQL statement it receives,
+# so we see what Prisma actually sent, not what we think it sent.
+services:
+  db:
+    image: postgres:18.7-alpine
+    command: ["postgres", "-c", "log_statement=all"]
+    environment:
+      POSTGRES_USER: lab
+      POSTGRES_PASSWORD: lab
+      POSTGRES_DB: lab
+    ports:
+      - "55432:5432" # 5432 is often taken by a local Postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lab -d lab"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
