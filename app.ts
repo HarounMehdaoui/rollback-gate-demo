@@ -20,7 +20,11 @@ async function step(label: string, run: () => Promise<unknown>): Promise<void> {
 
 await step("create", () =>
   prisma.user.create({
-    data: { name: "Ada Lovelace", email: `ada+${Date.now()}@example.com` },
+    data: {
+      fullName: "Grace Hopper",
+      email: `grace+${Date.now()}@example.com`,
+      phone: "+1-555-0100",
+    },
   }),
 );
 await step("list", () => prisma.user.findMany());
