@@ -17,4 +17,4 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: HarounMehdaoui/rigseal@v0.3.0
+      - uses: Hron-5/rigseal@v0.3.0
