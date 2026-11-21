@@ -1,5 +1,5 @@
-# Runs Rollback Gate on every pull request: can the released app (tag v*) still run on the database this PR's migrations leave?
-name: Rollback Gate
+# Runs Rigseal on every pull request: can the released app (tag v*) still run on the database this PR's migrations leave?
+name: Rigseal
 
 on:
   pull_request:
@@ -17,4 +17,4 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: Hron-5/rigseal@v0.3.0
+      - uses: Hron-5/rigseal@v0.4.0
